@@ -1,0 +1,9 @@
+.vs/
+bin/
+obj/
+*.user
+*.suo
+appSistema/
+appSistema2/
+mvcPractica3/
+mvcProyecto/
