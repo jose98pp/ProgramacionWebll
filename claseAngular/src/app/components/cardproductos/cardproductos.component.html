@@ -1,1 +1,13 @@
-<p>cardproductos works!</p>
+
+<div class="container">
+  <h2>Productos</h2>
+  <div class="productos-grid">
+    <div *ngFor="let producto of productos; let i = index" class="producto-card">
+      <img [src]="producto.img" alt="{{ producto.nombre }}" width="150" />
+      <h3>{{ producto.nombre }}</h3>
+      <p>Precio: ${{ producto.precio }}</p>
+      <p>{{ producto.descripcion }}</p>
+      <a [routerLink]="['/producto', i]" class="btn btn-primary">Ver Detalle</a>
+    </div>
+  </div>
+</div>

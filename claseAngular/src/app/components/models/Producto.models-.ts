@@ -3,6 +3,7 @@ export class Producto {
     img: string;
     precio: number;
     descripcion?: string;
+imagen: any;
   constructor() {
     this.nombre = '';
     this.img = '';
