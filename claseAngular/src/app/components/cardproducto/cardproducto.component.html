@@ -1,16 +1,24 @@
-
-<div *ngIf="producto; else noProducto">
-  <h1>{{ producto.nombre }}</h1>
-  <div class="row animated fadeIn fast">
-    <div class="col-md-4">
-      <img [src]="producto.img" class="img-thumbnail" [alt]="producto.nombre">
-      <br><br>
-      <a [routerLink]="['/productos']" class="btn btn-outline-danger btn-block">Volver</a>
-    </div>
-    <div class="col-md-8">
+<!-- src/app/components/cardproducto/cardproducto.component.html -->
+<div *ngIf="producto; else noProducto" class="container">
+  <div class="imgBx" [style.background]="colorSecundario">
+    <img [src]="imagenActual || producto.img" [alt]="producto.nombre">
+  </div>
+  <div class="details">
+    <div class="content">
+      <h2>{{ producto.nombre }} <br>
+        <span>Colección</span>
+      </h2>
       <p>{{ producto.descripcion }}</p>
-      <h3>Precio: ${{ producto.precio }}</h3>
-      <button class="btn btn-primary">Comprar</button>
+      <p class="product-colors">Colores disponibles:
+        <span *ngFor="let color of producto.colores"
+              [class]="color.nombre"
+              [class.active]="color.nombre === colorActivo"
+              (click)="cambiarColor(color)"
+              [style.background]="color.colorPrimario"></span>
+      </p>
+      <h3 [style.color]="colorSecundario">${{ producto.precio }}</h3>
+      <button [style.background]="colorSecundario">Comprar</button>
+      <a [routerLink]="['/productos']" class="btn btn-outline-danger">Volver</a>
     </div>
   </div>
 </div>
